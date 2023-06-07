@@ -22,7 +22,7 @@ class StartViewController: UIViewController {
      */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        // Test
         highScoreLabel.text = "High Score:" + String(gameBrain.highScore)
         navigationItem.setHidesBackButton(true, animated: false)
         
