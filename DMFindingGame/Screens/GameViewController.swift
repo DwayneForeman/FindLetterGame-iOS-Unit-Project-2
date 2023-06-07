@@ -68,11 +68,14 @@ class GameViewController: UIViewController {
         
         
         
+        
+        
         for index in 0..<gameBrain.randomLetters.count {
             
             let letter = gameBrain.randomLetters[index]
             
             letterButtons[index].setTitle(letter, for: .normal)
+            
             
         }
     }
@@ -82,15 +85,24 @@ class GameViewController: UIViewController {
      */
     @IBAction func letterButtonTapped(_ sender: UIButton) {
         
-     
         let letterSelected = sender.titleLabel?.text ?? ""
-        print(letterSelected)
-        
-        gameBrain.letterSelected(usersLetter: letterSelected)
-       
-        
-        updateUI()
-    }
+          
+          // Capture original background color
+          let originalColor = sender.backgroundColor
+          
+          // Change the buttonss background color to red
+          sender.backgroundColor = .red
+          
+        // Pause for for .3 seconds then change back
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+              // Revert the button's background color to the original color
+              sender.backgroundColor = originalColor
+          }
+          
+          print(letterSelected)
+          gameBrain.letterSelected(usersLetter: letterSelected)
+          updateUI()
+      }
     
     /*
      8.1 This function will get called automatically every second. Uncomment the provided code and add one more line of code inside the conditional to transition the user back to the start screen.
