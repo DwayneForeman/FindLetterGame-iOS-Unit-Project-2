@@ -33,6 +33,9 @@ class GameViewController: UIViewController {
         updateUI()
         configureTimer()
         
+
+        
+        
     }
     
   
@@ -47,6 +50,7 @@ class GameViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         timer.invalidate()
+        CoreDataManager.shared.addScore(score: gameBrain.score)
     }
     
     /*
@@ -119,5 +123,15 @@ class GameViewController: UIViewController {
                     }
         
         }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let copyOfStartViewController = segue.destination as! StartViewController
+//        DispatchQueue.main.async {
+//            copyOfStartViewController.highScoreLabel.text = String(self.gameBrain.highScore)
+//        }
+//    }
+   
+    
     }
+
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  2.1 Create a class called `GameBrain`. `GameBrain` will be a singleton that can be accessed in `StartViewController` and `GameViewController`. The code that makes this class a singleton is provided.
@@ -36,11 +37,15 @@ import Foundation
  */
 class GameBrain {
     
+   
+    
     /**
      This code makes `GameBrain` a singleton. You do not need to modify this code.
      */
     static let shared = GameBrain()
     private init() {}
+    
+   
     
     // Properties required
     
@@ -100,6 +105,8 @@ class GameBrain {
         //print(randomLetters)
     }
     
+  
+    
     func newGame(numOfLettersForGame: Int) {
         numLetters = numOfLettersForGame
         score = 0
@@ -121,7 +128,7 @@ class GameBrain {
         
         // Updating highcore to equal score if score is higher than current highScore
         if highScore < score {
-            highScore = score
+            highScore = CoreDataManager.shared.calculateHighScore()
         }
         
         newRound()

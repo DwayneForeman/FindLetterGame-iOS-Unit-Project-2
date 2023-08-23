@@ -37,6 +37,15 @@
                                     <segue destination="BnF-7g-Cp6" kind="show" identifier="GoBack" id="PdC-Hs-P56"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqS-CV-rNp">
+                                <rect key="frame" x="128" y="775" width="134" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="See All Scores"/>
+                                <connections>
+                                    <segue destination="wgZ-5t-wn7" kind="presentation" id="DDe-BX-baK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bfh-ov-URR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,6 +58,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u8-yX-Hc1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1216.9230769230769" y="-9.24170616113744"/>
+        </scene>
+        <!--Score Table View Controller-->
+        <scene sceneID="j0W-6D-Y9E">
+            <objects>
+                <tableViewController id="wgZ-5t-wn7" customClass="ScoreTableViewController" customModule="DMFindingGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="tju-xP-CTE">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oMn-ln-ru7">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="154"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreCell" rowHeight="66" id="lGg-mx-ub9">
+                                <rect key="frame" x="0.0" y="204" width="390" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lGg-mx-ub9" id="GJT-Tr-TyI">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wgZ-5t-wn7" id="FqR-dm-dMk"/>
+                            <outlet property="delegate" destination="wgZ-5t-wn7" id="cTR-UP-xag"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bAX-tV-NuQ"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRD-e7-sZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="z1c-qO-zSl">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                </button>
+            </objects>
+            <point key="canvasLocation" x="1216.9230769230769" y="812.55924170616106"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="cxR-YV-a0U">
@@ -265,7 +318,6 @@
         <!--Navigation Controller-->
         <scene sceneID="tsx-aZ-gqW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5yv-uV-Ls1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hvh-7D-lrN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pu7-Cz-Eid">
@@ -277,6 +329,7 @@
                         <segue destination="g7a-C5-IMC" kind="relationship" relationship="rootViewController" id="eGt-jH-5iX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yv-uV-Ls1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="-9"/>
         </scene>

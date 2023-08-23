@@ -13,20 +13,43 @@ import UIKit
  */
 class StartViewController: UIViewController {
     
+    
     let gameBrain = GameBrain.shared
     
     @IBOutlet weak var highScoreLabel: UILabel!
     
+
+    
     /**
      3.1 Update the `highScoreLabel`'s text to be the high score from the game brain.
      */
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.async {
+            //Setting the highScoreLabel equal to teh function we created in our CoreDataManager VC which sorts through the database to find the highest score and returns the value of Int. We converted the Int to a Strng here so we can update the label text of the UI
+            self.highScoreLabel.text = "High Score:" + String(CoreDataManager.shared.calculateHighScore())
+            self.navigationItem.setHidesBackButton(true, animated: false)
+        }
+    }
+    
+    
+    /* Using viewWillAppear does not update the highScoreTextLabel immditaly. Please see the viewDidAppear function I used above.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Test
-        highScoreLabel.text = "High Score:" + String(gameBrain.highScore)
-        navigationItem.setHidesBackButton(true, animated: false)
+         
+        DispatchQueue.main.async {
+            //Setting the highScoreLabel equal to teh function we created in our CoreDataManager VC which sorts through the database to find the highest score and returns the value of Int. We converted the Int to a Strng here so we can update the label text of the UI
+            self.highScoreLabel.text = "High Score:" + String(CoreDataManager.shared.calculateHighScore())
+            self.navigationItem.setHidesBackButton(true, animated: false)
+        }
+        
         
     }
+   */
+   
     
     /**
      4.1 Transition the user to the `GameViewController` when the start button is tapped.
